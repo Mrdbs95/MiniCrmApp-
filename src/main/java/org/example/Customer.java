@@ -21,7 +21,7 @@ import java.util.Set;
         public String id() {return id;}
         public String name() { return name;}
         public void setName(String name) {this.name = name;}
-        public Set<String> email() {return emails;}
+        public Set<String> emails() {return emails;}
         public Set<String> tags() {return tags;}
         public List<String> notes() {return notes;}
 
