@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class MiniCrm{
     private final Map<String, Customer> store = new HashMap<>();
-    private final Scanner sc = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         new MiniCrm().run();
@@ -15,7 +15,7 @@ public class MiniCrm{
     private void run(){
         while (true){
             printMenu();
-            String choise = sc.nextLine().trim();
+            String choise = scanner.nextLine().trim();
             switch (choise) {
                 case "1" -> addCustomer();
                 case "2" -> addEmail();
@@ -43,11 +43,11 @@ public class MiniCrm{
 
     private void addCustomer() {
         System.out.println("Customer ID:");
-        String id = sc.nextLine();
+        String id = scanner.nextLine();
         System.out.println("Customer name:");
-        String name = sc.nextLine();
+        String name = scanner.nextLine();
         System.out.println("Customer email:");
-        String email = sc.nextLine();
+        String email = scanner.nextLine();
 
         if (store.containsKey(id)) {
             System.out.println("Customer is already registered.");
@@ -59,11 +59,11 @@ public class MiniCrm{
 
     private void addEmail() {
         System.out.print("Customer id:");
-        String id = sc.nextLine().trim();
+        String id = scanner.nextLine().trim();
         Customer c = store.get(id);
         if (c == null) { System.out.println("Not found"); return;}
         System.out.print("Tag");
-        c.addTag(sc.nextLine().trim());
+        c.addTag(scanner.nextLine().trim());
         System.out.println("Tag added");
     }
 
@@ -71,6 +71,13 @@ public class MiniCrm{
 
 
 
+
+    private void showCustomer() {
+        System.out.print("Customer -id: ");
+        String id = scanner.nextLine();
+        Customer c = store.get(id);
+        System.out.println(c == null ? "Not found." : c);
+    }
 
     private void listAll() {
         for (Customer c : store.values()) {
