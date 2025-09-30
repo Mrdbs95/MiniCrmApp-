@@ -59,5 +59,14 @@ public class MiniCrm{
         System.out.println("Customer added.");
     }
 
-    
+    private void addEmail() {
+        System.out.print("Customer id:");
+        String id = sc.nextLine().trim();
+        Customer c = store.get(id);
+        if (c == null) { System.out.println("Not found"); return;}
+        System.out.print("Tag");
+        c.addTag(sc.nextLine().trim());
+        System.out.println("Tag added");
+    }
+
 }
