@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class MiniCrm{
+class MiniCrmApp{
     private final Map<String, Customer> store = new HashMap<>();
     private final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        new MiniCrm().run();
+        new MiniCrmApp().run();
     }
 
     private void run(){
@@ -23,7 +23,7 @@ public class MiniCrm{
                 case "4" -> addnote();
                 case "5" -> showCustomer();
                 case "6" -> listAll();
-                case "0" -> System.out.println("Bye"); return;
+                case "0" -> System.out.println("Bye");
                 default -> System.out.println("unknown choice");
             }
         }
@@ -46,8 +46,6 @@ public class MiniCrm{
         String id = scanner.nextLine();
         System.out.println("Customer name:");
         String name = scanner.nextLine();
-        System.out.println("Customer email:");
-        String email = scanner.nextLine();
 
         if (store.containsKey(id)) {
             System.out.println("Customer is already registered.");
@@ -67,10 +65,25 @@ public class MiniCrm{
         System.out.println("Tag added");
     }
 
+    private void addTag() {
+        System.out.println("Customer ID:");
+        String id = scanner.nextLine();
+        Customer customer = store.get(id);
+        if(customer == null) {System.out.println("No customer with that ID exist"); return;}
+        System.out.println("Tag: ");
+        customer.addTag(scanner.nextLine());
+        System.out.println("Tag added.");
+    }
 
-
-
-
+    private void addnote() {
+        System.out.print("Customer id: ");
+        String id = scanner.nextLine().trim();
+        Customer c = store.get(id);
+        if (c == null) { System.out.println("Not found."); return; }
+        System.out.print("Note: ");
+        c.addNote(scanner.nextLine());
+        System.out.println("Note added.");
+    }
 
     private void showCustomer() {
         System.out.print("Customer -id: ");
