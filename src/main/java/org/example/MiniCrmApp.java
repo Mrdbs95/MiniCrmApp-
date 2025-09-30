@@ -1,5 +1,7 @@
 package org.example;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -9,6 +11,7 @@ public class MiniCrmApp{
     private final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        System.out.println("Hej Daniel<3");
         new MiniCrmApp().run();
     }
 
