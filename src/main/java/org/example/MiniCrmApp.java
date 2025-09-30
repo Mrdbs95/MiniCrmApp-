@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-class MiniCrmApp{
+public class MiniCrmApp{
     private final Map<String, Customer> store = new HashMap<>();
     private final Scanner scanner = new Scanner(System.in);
 
