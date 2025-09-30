@@ -15,8 +15,8 @@ class MiniCrmApp{
     private void run(){
         while (true){
             printMenu();
-            String choise = scanner.nextLine().trim();
-            switch (choise) {
+            String choice = scanner.nextLine().trim();
+            switch (choice) {
                 case "1" -> addCustomer();
                 case "2" -> addEmail();
                 case "3" -> addTag();
