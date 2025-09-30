@@ -12,6 +12,7 @@ public class MiniCrmApp{
 
     public static void main(String[] args) {
         System.out.println("Hej Daniel<3");
+        System.out.println("Hej Daniel<333333");
         new MiniCrmApp().run();
     }
 
