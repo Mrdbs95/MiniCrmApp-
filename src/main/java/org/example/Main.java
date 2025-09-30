@@ -56,13 +56,16 @@ class MiniCrmApp{
     }
 
     private void addEmail() {
-        System.out.print("Customer id:");
+        System.out.print("Customer ID: ");
         String id = scanner.nextLine().trim();
         Customer c = store.get(id);
-        if (c == null) { System.out.println("Not found"); return;}
-        System.out.print("Tag");
-        c.addTag(scanner.nextLine().trim());
-        System.out.println("Tag added");
+        if (c == null) {
+            System.out.println("No customer with that ID exists.");
+            return;
+        }
+        System.out.print("Email: ");
+        c.addEmail(scanner.nextLine().trim());
+        System.out.println("Email added.");
     }
 
     private void addTag() {
@@ -94,8 +97,11 @@ class MiniCrmApp{
 
     private void listAll() {
         for (Customer c : store.values()) {
-            System.out.println(c.id() + " (" + c.name() + ") tags: " + c.tags().size() +
-                    " notes: " + c.notes().size());
+            System.out.println(c.id()
+                    + " (" + c.name() + ") "
+                    + "tags: " + c.tags().size()
+                    + " emails: " + c.emails().size()
+                    + " notes: " + c.notes().size());
         }
     }
 }
