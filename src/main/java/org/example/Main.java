@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class MiniCrm{
     private final Map<String, Customer> store = new HashMap<>();
     private final Scanner sc = new Scanner(System.in);
@@ -69,4 +67,15 @@ public class MiniCrm{
         System.out.println("Tag added");
     }
 
+
+
+
+
+
+    private void listAll() {
+        for (Customer c : store.values()) {
+            System.out.println(c.id() + " (" + c.name() + ") tags: " + c.tags().size() +
+                    " notes: " + c.notes().size());
+        }
+    }
 }
